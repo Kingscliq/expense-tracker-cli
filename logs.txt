@@ -44,3 +44,45 @@
  to the list with amount N2500
 2026-17-02/09/26 00:17:30 Expense no 1 changed to 3400 with type Debit
 2026-17-02/09/26 00:17:37 All expense was viewed
+2026-33-02/09/26 00:33:26 All expense was viewed
+2026-34-02/09/26 00:34:02 Added Sunday Rice Bash
+ to the list with amount N1000000
+2026-34-02/09/26 00:34:08 All expense was viewed
+2026-35-02/09/26 00:35:45 Expense ID 1 changed to 1500000 with type Debit
+2026-36-02/09/26 00:36:08 Added Much Chow
+ to the list with amount N2000000
+2026-36-02/09/26 00:36:28 Added Laugh and Chill
+ to the list with amount N50000
+2026-36-02/09/26 00:36:31 All expense was viewed
+2026-36-02/09/26 00:36:58 Added Nkwobi
+ to the list with amount N100000
+2026-38-02/09/26 00:38:08 Expense with ID: Laugh and Chill
+ was deleted
+2026-38-02/09/26 00:38:11 All expense was viewed
+2026-38-02/09/26 00:38:18 All expense was viewed
+2026-09-02/09/26 07:09:19 All expenses viewed
+2026-09-02/09/26 07:09:27 Added 'Test Expense' (N1234)
+2026-14-02/09/26 07:14:59 All expenses viewed
+2026-37-02/09/26 07:37:06 Added fish
+ to the list with amount N10000
+2026-41-02/09/26 07:41:12 All expense was viewed
+2026-41-02/09/26 07:41:31 Added fish
+ to the list with amount N2000
+2026-46-02/09/26 07:46:50 Added Catfish to the list with amount N2500
+2026-47-02/09/26 07:47:20 Added Akara to the list with amount N400
+2026-47-02/09/26 07:47:27 All expense was viewed
+2026-55-02/09/26 07:55:02 All expense was viewed
+2026-55-02/09/26 07:55:17 Added fish
+ to the list with amount N2000
+2026-00-02/09/26 08:00:34 Added fish to the list with amount N2300
+2026-11-02/09/26 08:11:00 Added fish to the list with amount N2000
+2026-11-02/09/26 08:11:52 Added 2 to the list with amount N4000
+2026-12-02/09/26 08:12:07 Added grapes to the list with amount N4000
+2026-12-02/09/26 08:12:09 All expense was viewed
+2026-13-02/09/26 08:13:18 Added egg to the list with amount N200
+2026-13-02/09/26 08:13:27 Added fish to the list with amount N4000
+2026-13-02/09/26 08:13:59 Expense ID 2 changed to 50000 with type Credit
+2026-15-02/09/26 08:15:30 Added fish to the list with amount N4000
+2026-15-02/09/26 08:15:59 Added rice and stew to the list with amount N500
+2026-16-02/09/26 08:16:21 Expense ID 2 changed to 200000 with type Debit
+2026-17-02/09/26 08:17:27 Added fish to the list with amount N4000

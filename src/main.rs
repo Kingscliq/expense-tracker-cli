@@ -10,10 +10,30 @@ use ui::start;
 
 fn main() {
     let mut tracker = ExpenseTracker::new();
+    println!(
+        r#"
+  _____                                      
+ | ____|_  ___ __   ___ _ __  ___  ___   
+ |  _| \ \/ / '_ \ / _ \ '_ \/ __|/ _ \  
+ | |___ >  <| |_) |  __/ | | \__ \  __/  
+ |_____/_/\_\ .__/ \___|_| |_|___/\___|  
+            |_|                          
+       T R A C K E R
+    "#
+    );
+
+    println!(
+        r#"
+Welcome to Expense Tracker v1.0!
+---------------------------------
+Manage your income and expenses efficiently.
+Usage: Select an option from the menu below to get started.
+All data is saved automatically in memmory.
+"#
+    );
 
     loop {
         display_actions();
-        println!("Welcome to our program, please enter a valid input");
 
         let mut action = String::new();
         io::stdin()
