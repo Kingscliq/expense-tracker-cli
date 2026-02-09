@@ -1,4 +1,4 @@
-use crate::expenses::{Expense, ExpenseTracker, TrackerActions, TransactionType};
+use crate::model::{Expense, ExpenseTracker, TrackerActions, TransactionType};
 use crate::logger;
 use std::io;
 
