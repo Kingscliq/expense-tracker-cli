@@ -27,37 +27,41 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
             let mut tx_type = String::new();
 
             println!("Enter Expense title: ");
+
+            title.clear();
             io::stdin()
                 .read_line(&mut title)
                 .expect("Please enter a vlaid input");
 
             let parsed_amount = loop {
                 println!("Enter Amount: ");
+                amount.clear();
                 io::stdin()
                     .read_line(&mut amount)
                     .expect("Please enter a vlaid amount field, it should be an integer");
 
                 match amount.trim().parse::<u32>() {
                     Ok(amt) => break amt,
-                    Err(_) => println!("Invalid entry. Please enter a number"),
+                    Err(_) => println!("❌ Invalid entry. Please enter a positive number ‼️ "),
                 }
             };
 
             let parsed_type = loop {
                 println!("Enter Transaction type (debit/credit): ");
+                tx_type.clear();
                 io::stdin()
                     .read_line(&mut tx_type)
-                    .expect("Please enter a valid transaction type. (debit/credit)");
+                    .expect("⚠️ Please enter a valid transaction type. (debit/credit)");
                 match tx_type.trim().to_lowercase().as_str() {
                     "credit" => break TransactionType::Credit,
                     "debit" => break TransactionType::Debit,
-                    _ => println!("Invalid transaction type!! Please try again"),
+                    _ => println!("❌ Invalid transaction type!! Please try again"),
                 };
             };
 
             let new_expense = Expense {
                 id: tracker.next_key,
-                title: title,
+                title: title.trim().to_string(),
                 amount: parsed_amount,
                 tx_type: parsed_type,
             };
@@ -67,9 +71,10 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
                     "Added {} to the list with amount N{}",
                     added_expense.title, added_expense.amount
                 );
+                println!("{added_expense}");
                 let _ = logger::log(added_expense.as_str());
             } else {
-                println!("An error occured while adding expense to the list")
+                println!("❌ An error occured while adding expense to the list")
             }
         }
         TrackerActions::Edit => {
@@ -87,7 +92,8 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
             }
 
             let id = loop {
-                println!("Enter the id of the item you want to modify: ");
+                println!("\nEnter the id of the item you want to modify: ");
+                expense_id.clear();
                 io::stdin()
                     .read_line(&mut expense_id)
                     .expect("Please enter a valid number");
@@ -100,18 +106,20 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
 
             let parsed_amount = loop {
                 println!("Enter new amount: ");
+                amount.clear();
                 io::stdin()
                     .read_line(&mut amount)
                     .expect("Please enter a vlaid amount field, it should be an integer");
 
                 match amount.trim().parse::<u32>() {
                     Ok(amt) => break amt,
-                    Err(_) => println!("Invalid entry. Please enter a number"),
+                    Err(_) => println!("❌ Invalid entry ‼️. Please enter a number"),
                 }
             };
 
             let parsed_type = loop {
                 println!("Enter the new transaction type (debit/credit): ");
+                tx_type.clear();
                 io::stdin()
                     .read_line(&mut tx_type)
                     .expect("Please enter a valid transaction type. (debit/credit)");
@@ -124,12 +132,13 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
 
             if let Ok(item) = tracker.update_item(id, parsed_amount, parsed_type) {
                 let msg = format!(
-                    "Expense ID {} changed to {} with type {:?}",
+                    "You changed expense ID {}'s amount N{} and transaction type {:?}",
                     item.id, item.amount, item.tx_type
                 );
+                println!("{msg}");
                 let _ = logger::log(&msg);
             } else {
-                println!("An error occured editing item")
+                println!("❌ An error occured editing item")
             }
         }
         TrackerActions::ViewSingle => {
@@ -143,14 +152,14 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
             let mut expense_id = String::new();
 
             let id = loop {
-                println!("Enter the id of the item you want to view: ");
+                println!("⚠️ Enter the id of the item you want to view: ");
                 io::stdin()
                     .read_line(&mut expense_id)
                     .expect("Please enter a valid number");
 
                 match expense_id.trim().parse::<u8>() {
                     Ok(amt) => break amt,
-                    Err(_) => println!("Invalid entry. Please enter a number"),
+                    Err(_) => println!("❌ Invalid entry. Please enter a number"),
                 }
             };
 
@@ -168,7 +177,7 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
 
                 let _ = logger::log(&msg);
             } else {
-                println!("An Error Occured while viewing item")
+                println!("❌ An Error Occured while viewing item")
             }
         }
         TrackerActions::Delete => {
@@ -181,13 +190,15 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
 
             let id = loop {
                 println!("Enter the id of the item you want to delete: ");
+
+                expense_id.clear();
                 io::stdin()
                     .read_line(&mut expense_id)
                     .expect("Please enter a valid number");
 
                 match expense_id.trim().parse::<u8>() {
                     Ok(amt) => break amt,
-                    Err(_) => println!("Invalid entry. Please enter a number"),
+                    Err(_) => println!("❌ Invalid entry. Please enter a number"),
                 }
             };
             if let Ok(expense) = tracker.delete_expense(id) {
@@ -200,7 +211,7 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
         TrackerActions::Quit => loop {
             println!("Are you sure you want to quit? (y/n)");
             let mut quit_command = String::new();
-
+            quit_command.clear();
             io::stdin()
                 .read_line(&mut quit_command)
                 .expect("Please enter a valid string");
@@ -209,7 +220,7 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
                 "y" => std::process::exit(1),
                 "n" => return,
                 _ => {
-                    println!("Invalid input please type a 'y' for yes or 'n' for no");
+                    println!("⚠️ Invalid input please type a 'y' for yes or 'n' for no");
                 }
             }
         },
