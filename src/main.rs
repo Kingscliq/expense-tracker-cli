@@ -1,8 +1,8 @@
-mod expenses;
+mod model;
 mod logger_module;
 mod ui;
 
-use expenses::{ExpenseTracker, TrackerActions};
+use model::{ExpenseTracker, TrackerActions};
 use logger_module as logger;
 use std::io;
 use ui::display_actions;
