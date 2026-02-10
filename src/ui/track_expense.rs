@@ -1,5 +1,5 @@
-use crate::model::{Expense, ExpenseTracker, TrackerActions, TransactionType};
 use crate::logger;
+use crate::model::{Expense, ExpenseTracker, TrackerActions, TransactionType};
 use std::io;
 
 // This does not have a return value because its just reponsible for io operations
@@ -217,7 +217,7 @@ pub fn start(action: &TrackerActions, tracker: &mut ExpenseTracker) {
                 .expect("Please enter a valid string");
 
             match quit_command.trim().to_lowercase().as_str() {
-                "y" => std::process::exit(1),
+                "y" => std::process::exit(0),
                 "n" => return,
                 _ => {
                     println!("⚠️ Invalid input please type a 'y' for yes or 'n' for no");
